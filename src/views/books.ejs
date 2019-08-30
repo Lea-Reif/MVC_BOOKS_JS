@@ -1,0 +1,40 @@
+
+ <% include partials/header%>
+
+ <h1>Books</h1>
+<a href="book_create">Create Book</a>
+<div class="container">
+    <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+            <th>ID</th>
+             <th>NAMES</th>
+            <th>ISBN</th>
+            <th>GENRE</th>
+            <th>DATE</th>
+            <th>Actions</th>
+            </tr>
+           <tbody>
+               <%if(data){ %>
+                <% for (let i = 0; i < data.length; i++){ %>
+                <tr> 
+               <td> <%=(i+1) %></td>
+               <td> <%=data[i].NAMES %></td>
+               <td> <%=data[i].ISBN %></td>
+               <td> <%=data[i].GENRE %></td>
+               <td> <%=data[i].DATES %></td>
+               <td> <a href="/remove/<%=data[i].ID%>" class=" btn btn-danger">Remove</a>
+                    <a href="/update/<%=data[i].ID%>" class=" btn btn-info">Update</a>
+               </td>
+                    </tr>   
+                <% } %>          
+                
+              <% }%>
+
+           </tbody>
+            </thead>
+        </table>
+    </div>
+    
+  <% include partials/footer%>
